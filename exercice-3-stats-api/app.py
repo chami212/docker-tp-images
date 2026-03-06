@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-@app.route('/api/stats/median', methods=['POST'])
+@app.route('/api/stats', methods=['POST'])
 def calculate_stats():
     data = request.json.get('numbers', [])
     
@@ -18,7 +18,8 @@ def calculate_stats():
     }
     
     return jsonify(result)
-    
+
+@app.route('/api/stats/median', methods=['POST'])
 def calculate_median():
     data = sorted(request.json.get('numbers', []))
     n = len(data)
