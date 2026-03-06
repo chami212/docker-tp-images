@@ -67,6 +67,11 @@ pytest==7.4.0
 
 2. Construire et tester la version `2.0.0`.
 3. Comparer la taille des images `1.0.0` et `2.0.0`.
+
+chami59212/stats-api                      2.0.0     bd5d7aee36c4   2 hours ago      186MB
+chami59212/stats-api                      1.0.0     314a0ee84b70   16 minutes ago   202MB
+5 mb de moins pour la v2
+
 4. Publier `1.0.0`, `2.0.0` et mettre `latest` sur `2.0.0`.
 
 Les commandes doivent etre fournies dans un fichier separe `COMMANDS.md`.
@@ -74,8 +79,11 @@ Les commandes doivent etre fournies dans un fichier separe `COMMANDS.md`.
 ## Questions de reflexion
 
 - Quelle est la difference de taille entre `1.0.0` et `2.0.0` ?
+16mb ; 1.0.0 = 202mb et 2.0.0 186mb
 - Pourquoi `pytest` ne doit pas rester dans l'image de production ?
+car c'est un outil de test qui peux prendre de la place inutilement dans une image
 - Comment recuperer explicitement la version `1.0.0` depuis Docker Hub ?
+docker pull chami59212/stats-api:1.0.0
 
 ## Criteres de validation
 

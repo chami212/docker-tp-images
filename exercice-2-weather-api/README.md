@@ -29,20 +29,23 @@ Tu disposes d'une API meteo Express qui expose:
 - `tonusername/weather-api:1.0.0`
 
 4. Tester l'application localement:
-- endpoint meteo sur `/api/weather/paris`
-- endpoint sante sur `/health`
+- endpoint meteo sur `/api/weather/paris` OK
+- endpoint sante sur `/health` OK
 
 5. Publier l'image sur Docker Hub puis creer/publier le tag `latest`.
 
-6. Verifier que le repository Docker Hub est public et contient bien les deux tags.
+6. Verifier que le repository Docker Hub est public et contient bien les deux tags. OK
 
 Les commandes doivent etre fournies dans un fichier separe `COMMANDS.md`.
 
 ## Questions de reflexion
 
 - Pourquoi copier `package.json` avant le reste du code ?
+pour pouvoir utiliser le cache de docker si package.json ne change pas, docker ne réinstalle pas les dépendances et réutilise la couche déjà construite
 - Quelle difference de taille entre `node:18` et `node:18-alpine` ?
+node:18 équivaut à, à peu près 1Gb et la version alpine 170mb donc plus minimal
 - A quoi sert le tag `latest` ?
+permettre d'utiliser la derniere version d'une image si elle est postée si on pull une image sans lui donner de version elle prendra celle liée à latest, la derniere
 
 ## Criteres de validation
 
