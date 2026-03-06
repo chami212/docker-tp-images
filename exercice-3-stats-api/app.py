@@ -3,6 +3,22 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 @app.route('/api/stats/median', methods=['POST'])
+def calculate_stats():
+    data = request.json.get('numbers', [])
+    
+    if not data:
+        return jsonify({'error': 'No data provided'}), 400
+    
+    result = {
+        'count': len(data),
+        'sum': sum(data),
+        'average': sum(data) / len(data),
+        'min': min(data),
+        'max': max(data)
+    }
+    
+    return jsonify(result)
+    
 def calculate_median():
     data = sorted(request.json.get('numbers', []))
     n = len(data)
